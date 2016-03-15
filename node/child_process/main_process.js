@@ -16,7 +16,7 @@ var createWorker = function() {
 
 	worker.on('message', function (m){  // 接到子进程消息
 		if ( m.act === 'suicide' ) {
-			createWorker();
+			createWorker();             // 立即启动新进程
 		}
 	});
 

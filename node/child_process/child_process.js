@@ -19,11 +19,11 @@ process.on('uncaughtException', function (){   // 子进程未捕获的异常错
 
 	process.send({act:'suicide'});  //   发送给主进程消息
 
-	work.close(function (){			
+	work.close(function (){			// 发过来的net句柄关闭
 		process.exit(1);			// 子进程退出
 	});
 
-	setTimeout(function (){			// 子定时退出
+	setTimeout(function (){			// 子进程定时强制退出
 		process.exit(1);
 	},5000);
 })
